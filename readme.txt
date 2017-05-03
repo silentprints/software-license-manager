@@ -1,10 +1,10 @@
 === Software License Manager ===
-Contributors: Tips and Tricks HQ, Peter Petreski, Ruhul Amin
+Contributors: Tips and Tricks HQ, Ruhul Amin
 Donate link: https://www.tipsandtricks-hq.com/software-license-manager-plugin-for-wordpress
 Tags: license key, serial key, manager, license, serial, key, selling, sell, license activation, manage license, software license, software license manager
-Requires at least: 3.0
-Tested up to: 4.3
-Stable tag: 1.8
+Requires at least: 4.0
+Tested up to: 4.7
+Stable tag: 2.9
 License: GPLv2 or later
 
 Create and manage license keys for your software applications easily
@@ -28,8 +28,14 @@ You can also create license keys manually from the admin dashboard of this plugi
 
 Check [license manager documentation](https://www.tipsandtricks-hq.com/software-license-manager-plugin-for-wordpress) to learn more.
 
-= Integration with WP eStore =
+= Integration with WP eStore plugin =
 Check [WP eStore integration documentation](https://www.tipsandtricks-hq.com/ecommerce/integrate-wp-estore-with-software-license-manager-plugin-3731)
+
+= Github repository =
+
+https://github.com/Arsenal21/software-license-manager
+
+If you need some extra action hooks or filters for this plugin then let us know.
 
 == Installation ==
 
@@ -46,6 +52,48 @@ See the following page:
 https://www.tipsandtricks-hq.com/software-license-manager-plugin-for-wordpress
 
 == Changelog ==
+
+= 2.9 =
+- The API response will now include a numeric error code (in the event of an error). Thanks to Steve Gehrman.
+
+= 2.8 =
+- The registered domains (if any) of a license key will get deleted when that key is deleted from the manage licenses menu.
+- Added wp_unslash() for firstname, lastname, registered domain and company name. Thanks to @sgehrman.
+- Added a new action hook (slm_license_key_expired) that gets triggered when a license key expires.
+
+= 2.7 =
+- eStore integration update: changed expiry date field to accept number of days so the plugin can dynamically calculate the expiry date for the key.
+
+= 2.6 = 
+- Updated the eStore integration so a custom "Expiry Date" value can be set in the product configuration.
+
+= 2.5 =
+- Updated the eStore plugin integration so a custom "Maximum Allowed Domains" value can be specified in the eStore product configuration.
+
+= 2.4 =
+- Added new action and filter hooks in the add/edit interface so an addon can extend the functionality of that interface.
+- Added nonce check in the add/edit license interface.
+
+= 2.3 = 
+- Added a new feature to enable auto expiry of the license keys. You can enable this option from the settings.
+- If you don't specify a expiry date, when adding a manual license key, it will use the current date plus 1 year as the expiry date.
+- Increased the width and height of the "Registered Domains" box in the edit license interface.
+- Added a new table column product_ref in the license keys table.
+- Added couple of new hooks in the plugin.
+
+= 2.2 =
+- Added integration with the squeeze form submission of eStore plugin.
+
+= 2.1 =
+- The license check query now outputs the date values also.
+- Improvement for the WP eStore integration.
+
+= 2.0 =
+- Added a filter to remove any null values from the DB insert query parameter of the API Utility class.
+
+= 1.9 =
+- Replaced "esc_url()" with "esc_url_raw()" in the sample plugin. 
+- Updated some CSS in the admin interface for WordPress 4.4
 
 = 1.8 =
 - Added new hooks before the API query is executed. This allows a developer to override the API query and do custom stuff.

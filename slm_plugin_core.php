@@ -10,6 +10,8 @@ define('SLM_MENU_ICON', 'dashicons-lock');
 
 //Includes
 include_once('includes/slm-debug-logger.php');
+include_once('includes/slm-error-codes.php');
+include_once('includes/slm-utility.php');
 include_once('includes/slm-init-time-tasks.php');
 include_once('includes/slm-api-utility.php');
 include_once('includes/slm-api-listener.php');
@@ -17,7 +19,7 @@ include_once('includes/slm-third-party-integration.php');
 //Include admin side only files
 if (is_admin()) {
     include_once('menu/slm-admin-init.php');
-    include_once('menu/includes/wp-license-mgr-list-table.php'); //Load our own WP List Table class
+    include_once('menu/includes/slm-list-table-class.php'); //Load our own WP List Table class
 }
 
 //Action hooks
